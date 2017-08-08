@@ -1,0 +1,51 @@
+{% extends 'baseTemplate.html' %}
+{% load static %}
+{% block main_content %}
+    <div class="row set-height">
+        <div class="large-10 small-12 large-centered">
+            <div class="input-group">
+                <span class="input-group-label">Search Projects</span>
+                <input class="input-group-field" type="text" id="searchProjects">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 small-12 large-centered">
+            <table id="AllProjectsData" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>projectTitle</th>
+                    <th>projectCategory</th>
+                    <th>projectType</th>
+                    <th>projectLanguage</th>
+                    <th>projectOwner</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for each_project in projectData %}
+                    <tr>
+                        <td>{{ each_project.projectTitle }}</td>
+                        <td>{{ each_project.projectCategory }}</td>
+                        <td>{{ each_project.projectType }}</td>
+                        <td>{{ each_project.projectLanguage }}</td>
+                        <td>{{ each_project.projectOwner.instituteName }}</td>
+                        <td>
+                            {% if each_project.id not in requestedProjects %}
+                                <a class="button primary small request-for-project" data-id="{{ each_project.pk }}">Request Project</a>
+                            {% else %}
+                                <a class="button success small">Requested</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% include 'loginModals.html' %}
+{% endblock main_content %}
+{% block javascript %}
+     <script src="{% static 'js/loginPageManagement/userLogin.js' %}"></script>
+    <script src="{% static 'js/searchProjectManagement/searchProjects.js' %}"></script>
+{% endblock javascript %}

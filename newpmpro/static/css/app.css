@@ -1,0 +1,32 @@
+body, h1, h2, h3, h4, h5, h6, p, li, a, div{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.get-font{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.get-title-font{
+    font-family: 'Quicksand', sans-serif;
+    /*font-weight: 300;*/
+}
+
+li{
+    float: left;
+    padding: 30px 40px;
+}
+
+ul li a{
+    color: black;
+}
+
+.set-height{
+    margin-top: 30px;
+}
+/*.welcome-div{*/
+/*!*-webkit-box-shadow:0px 1px 1px #c0c0c0;*!*/
+/*!*-moz-box-shadow:0px 1px 1px #c0c0c0;*!*/
+/*box-shadow:0px 1px 1px #c0c0c0;*/
+/*}*/

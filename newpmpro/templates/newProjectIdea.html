@@ -1,0 +1,74 @@
+{% extends 'baseTemplate.html' %}
+{% load static %}
+{% block main_content %}
+    <div class="row">
+        <h2 class="text-center get-title-font">Do you have any new project idea???</h2>
+        <h5 class="text-center get-title-font">Share it with us. we will build it for you</h5>
+    </div>
+    <div class="row">
+        <div class="large-8 small-12 columns large-centered">
+            <fieldset class="fieldset">
+                <form id="newProjectIdeaForm">
+                    <label><b>Tell Us Your Project Title</b></label>
+                    <input type="text" placeholder="Enter project title" aria-describedby="TitleHelpText" name="projectTitle">
+                    <div class="row">
+                        <div class="large-6 small-12 columns">
+                            <label class="get-font"><b>Select Project Category</b></label>
+                            <select aria-describedby="ProjectCategoryHelpText" name="projectCategory">
+                                <option value="Ecommerce">E-commerce</option>
+                                <option value="AccountingAndInventory">Inventory</option>
+                                <option value="B.Tech">Acedemic project(B.Tech)</option>
+                                <option value="M.Tech">Acedemic project(M.Tech)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="large-6 small-12 columns">
+                            <label class="get-font"><b>Select Project Type</b></label>
+                            <select aria-describedby="ProjectTypeHelpText" name="projectType">
+                                <option value="Desktop">Desktop Application</option>
+                                <option value="Web">Web Application</option>
+                                <option value="WebResponsive">Responsive Web Application</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-6 small-12 columns">
+                            <form>
+                                <label><b>Select Preffered Language</b></label>
+                                <select aria-describedby="" name="projectLanguage">
+                                    <option value="Java">Java</option>
+                                    <option value="Python">Python</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="large-6 small-12 columns">
+                            <label><b>Do you require IEE Paper??</b></label>
+                            <select aria-describedby="" name="ieePaper">
+                                <option value="Yes">YES</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 small-12 columns">
+                            <label><b>Write Down Your Project Idea or Abstract</b></label>
+                            <textarea placeholder="Write Project Abstract" type="input" rows="5" id="projectAbstract" name="projectAbstract" aria-describedby="ProjectAbstractHelpText">
+
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a class="button send-project-idea" data-form-id="newProjectIdeaForm">SHARE PROJECT IDEA</a>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+    {% include 'loginModals.html' %}
+{% endblock main_content %}
+{% block javascript %}
+    <script src="{% static 'js/loginPageManagement/userLogin.js' %}"></script>
+    <script src="{% static 'js/projectIdeaManagement/sendProjectIdea.js' %}"></script>
+{% endblock javascript %}

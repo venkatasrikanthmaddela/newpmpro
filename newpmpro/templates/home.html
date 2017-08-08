@@ -1,0 +1,59 @@
+{% extends 'baseTemplate.html' %}
+{% load static %}
+{% block main_content %}
+    <div class="row">
+        <div class="large-12 small-12 medium-10 column" style="border-bottom: 1px solid silver;">
+            <div class="large-text-center">
+                <img src="{% static 'img/logo_2049114_web.jpg' %}">
+            </div>
+            <div class="large-text-center welcome-div">
+                <p class="align-center">Let's get started with</p>
+                <a class="button text-center">Search projects</a>
+                <a class="button text-center" data-open="loginModalForm">Login/Register</a>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <h3 class="get-title-font">HOW WE WORK</h3>
+    </div>
+    <div class="row small-up-2 medium-up-3">
+        <div class="column">
+            <div class="card">
+                <div class="card-divider">
+                    <h4 class="text-center get-title-font">Pick Your Project from list</h4>
+                </div>
+
+                <div class="card-section get-title-font">
+                    <p class="text-center"><b>Search From Our Project Library</b></p>
+                    <p>Some text.. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <div class="card-divider">
+                    <h4 class="text-center get-title-font">Get Project Assistance</h4>
+                </div>
+                <div class="card-section">
+                    <p class="text-center"><b>Request for our Assistance</b></p>
+                    <p>Some text.. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+        <div class="column get-font">
+            <div class="card">
+                <div class="card-divider">
+                    <h4 class="text-center get-title-font">Get Your Project Done</h4>
+                </div>
+                <div class="card-section">
+                    <p class="text-center"><b>Hurray..! Project done</b></p>
+                    <p>Some text.. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'loginModals.html' %}
+{% endblock main_content %}
+{% block javascript %}
+    <script src="{% static 'js/loginPageManagement/userLogin.js' %}"></script>
+{% endblock javascript %}

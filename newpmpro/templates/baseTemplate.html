@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hi</title>
+    {% block css %}
+{#        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">#}
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link href="{% static 'css/app.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'css/lyejwr.css' %}" rel="stylesheet" >
+        <link type="text/css" href="{% static 'css/dataTables.foundation.min.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'foundation-icons/foundation-icons.css' %}" rel="stylesheet">
+    {% endblock css %}
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/dataTables.foundation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/what-input.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/vendor/foundation.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/utils/utils.js' %}"></script>
+    {% block javascript %}
+    {% endblock javascript %}
+</head>
+<body>
+
+<!-- This demo uses float grid but you can use flex grid too -->
+<div class="top-bar my-top-bar">
+    <div class="top-bar-left">
+        <ul class="vertical medium-horizontal menu" data-responsive-menu="accordion medium-dropdown">
+            <li><a href="{% url 'home-page' %}">Pickmyproject</a></li>
+            <li><a href="#">HOW WE WORK</a></li>
+            <li><a href="{% url 'search-projects' %}">SEARCH PROJECTS</a></li>
+            <li>
+                <a href="#">CSE/IT PROJECTS</a>
+                <ul class="menu vertical">
+                    <li>
+                        <a href="#">B.tech Projects</a>
+                        <ul class="menu">
+                            <li><a href="#">Java projects</a></li>
+                            <li><a href="#">M.tech projects</a></li>
+                            <li><a href="#">Python projects</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">M.tech projects</a>
+                        <ul class="menu">
+                            <li><a href="#">Java projects</a></li>
+                            <li><a href="#">M.tech projects</a></li>
+                            <li><a href="#">Python projects</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Other projects</a>
+                        <ul class="menu">
+                            <li><a href="#">JavaScript Projects</a></li>
+                            <li><a href="#">Java Springs Projects</a></li>
+                            <li><a href="#">Django Projects</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="{% url 'new-project-idea' %}">NEW PROJECT IDEA</a></li>
+            <li><a href="#">CONTACT US</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="vertical medium-horizontal menu" data-responsive-menu="accordion medium-dropdown">
+            {% if request.user.email %}
+                <li>
+                    <a href="#">Welcome,{{ request.user.username }}</a>
+                    <ul class="menu">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">My Dashboard</a></li>
+                        <li><a href="{% url 'log-out' %}">Logout</a></li>
+                    </ul>
+                </li>
+            {% else %}
+                <li><a class="button small header-login-button" data-open="loginModalForm">LOGIN</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+{% block main_content %}
+{% endblock main_content %}
+
+</body>
+</html>

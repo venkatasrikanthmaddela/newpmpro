@@ -1,0 +1,9 @@
+*.pyc
+db.sqlite3
+__pycache__
+.idea/workspace.xml
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/dataSources.xml
+.idea/inspectionProfiles/
+.idea

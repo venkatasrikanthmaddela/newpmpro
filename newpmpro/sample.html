@@ -1,0 +1,183 @@
+<div class="screenlet" id="screenlet_1"><div class="screenlet-title-bar"><ul><li class="h3">CREATE A CONSUMABLE PRODUCT</li>
+
+</ul></div>
+    <div id="screenlet_1_col" class="screenlet-body">
+        <!-- Begin  Form Widget - Form Element  component://ordersnew/widget/ordersnewForms.xml#CreatingConsumableProduct -->
+        <form method="post" action="" id="NewProductDetails" class="basic-form" onsubmit="" name="newConsumableProduct">
+            <!--            <input type="hidden" name="userLoginId" id="UpdatePassword_userLoginId" value="${userLoginId}"/> -->
+            <!--           <input type="hidden" name="partyId" id="UpdatePassword_partyId" value="${partyId}"/> -->
+            <table cellspacing="0" class="basic-table">
+                <tbody>
+                <tr>
+                    <td class="label">
+                        <label for="NewProductDetails_consumableProductName" id="consumableProductNameTitle">Enter product name</label>  </td>
+                    <td>
+                        <input type="text" name="consumableProductName" value="" size="25" id="NewProductDetails_consumableProductName" require/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">
+                        <label for="consumableProductDescription" id="consumableProductDescriptionTitle">New Password</label>  </td>
+                    <td>
+                        <input type="text" name="consumableProductDescription" value="" size="25" id="consumableProductDescription"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">
+                        <label for="consumableProductPrice" id="consumableProductPriceTitle">Product Price</label>  </td>
+                    <td>
+                        <input type="number" name="consumableProductPrice" value="" id="consumableProductPrice"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">
+                        <label for="consumableProductUom" id="consumableProductUomTitle">Select UOM</label>  </td>
+                    <td>
+                        <select name="consumableProductUom" id="consumableProductUom" size="1" class="valid">
+                            <option value="">&nbsp;</option>
+                            <option value="AREA_A">Area: Acre (A)</option>
+                            <option value="AREA_a">Area: Are (a)</option>
+                            <option value="AREA_ha">Area: Hectare (ha)</option>
+                            <option value="AREA_cm2">Area: Square Centimeter (cm2)</option>
+                            <option value="AREA_ft2">Area: Square Foot (sq ft)</option>
+                            <option value="AREA_in2">Area: Square Inch (in2)</option>
+                            <option value="AREA_km2">Area: Square Kilometer (km2)</option>
+                            <option value="AREA_m2">Area: Square Meter (sq mtrs)</option>
+                            <option value="AREA_mi2">Area: Square Mile (mi2)</option>
+                            <option value="AREA_mm2">Area: Square Millimeter (mm2)</option>
+                            <option value="AREA_rd2">Area: Square Rod (rd2)</option>
+                            <option value="AREA_yd2">Area: Square Yard (yd2)</option>
+                            <option value="DATA_b">Data Size: Bit of Data (b)</option>
+                            <option value="DATA_B">Data Size: Byte of Data (B)</option>
+                            <option value="DATA_Gb">Data Size: Gigabit of Data (Gb)</option>
+                            <option value="DATA_GB">Data Size: Gigabyte of Data (GB)</option>
+                            <option value="DATA_Kb">Data Size: Kilobit of Data (Kb)</option>
+                            <option value="DATA_KB">Data Size: Kilobyte of Data (KB)</option>
+                            <option value="DATA_Mb">Data Size: Megabit of Data (Mb)</option>
+                            <option value="DATA_MB">Data Size: Megabyte of Data (MB)</option>
+                            <option value="DATA_Pb">Data Size: Petabit of Data (Pb)</option>
+                            <option value="DATA_PB">Data Size: Petabyte of Data (PB)</option>
+                            <option value="DATA_Tb">Data Size: Terabit of Data (Tb)</option>
+                            <option value="DATA_TB">Data Size: Terabyte of Data (TB)</option>
+                            <option value="DATASPD_bps">Data Speed: Bit-per-second of Data (bps)</option>
+                            <option value="DATASPD_Gbps">Data Speed: Gigabit-per-second of Data (Gbps)</option>
+                            <option value="DATASPD_Kbps">Data Speed: Kilobit-per-second of Data (Kbps)</option>
+                            <option value="DATASPD_Mbps">Data Speed: Megabit-per-second of Data (Mbps)</option>
+                            <option value="DATASPD_Tbps">Data Speed: Terabit-per-second of Data (Tbps)</option>
+                            <option value="VDRY_cm3">Dry Volume: Cubic centimeter (cm3)</option>
+                            <option value="VDRY_ft3">Dry Volume: Cubic foot (Cubic ft)</option>
+                            <option value="VDRY_in3">Dry Volume: Cubic inch (in3)</option>
+                            <option value="VDRY_m3">Dry Volume: Cubic meter (m3)</option>
+                            <option value="VDRY_mm3">Dry Volume: Cubic millimeter (mm3)</option>
+                            <option value="VDRY_yd3">Dry Volume: Cubic yard (yd3)</option>
+                            <option value="VDRY_ST">Dry Volume: Stere (cubic meter) (ST)</option>
+                            <option value="EN_Btu">Energy: British Thermal Unit (Btu)</option>
+                            <option value="EN_cal15">Energy: Calorie (@15.5c) (cal15)</option>
+                            <option value="EN_HP">Energy: Horsepower (mechanical) (HP)</option>
+                            <option value="EN_J">Energy: Joule (absolute) (J)</option>
+                            <option value="EN_Kw">Energy: Kilowatt (Kw)</option>
+                            <option value="EN_w">Energy: Watt (w)</option>
+                            <option value="LEN_A">Length: Angstrom (A)</option>
+                            <option value="LEN_cb">Length: Cable (cb)</option>
+                            <option value="LEN_cm">Length: Centimeter (cm)</option>
+                            <option value="LEN_chG">Length: Chain (Gunter's/surveyor's) (chG)</option>
+                            <option value="LEN_chR">Length: Chain (Ramden's/engineer's) (chR)</option>
+                            <option value="LEN_dm">Length: Decimeter (dm)</option>
+                            <option value="LEN_dam">Length: Dekameter (dam)</option>
+                            <option value="LEN_fm">Length: Fathom (fm)</option>
+                            <option value="LEN_ft">Length: Foot (ft)</option>
+                            <option value="LEN_fur">Length: Furlong (fur)</option>
+                            <option value="LEN_hand">Length: Hand (horse's height) (hand)</option>
+                            <option value="LEN_in">Length: Inch (in)</option>
+                            <option value="LEN_km">Length: Kilometer (km)</option>
+                            <option value="LEN_league">Length: League (league)</option>
+                            <option value="LEN_lnG">Length: Link (Gunter's) (lnG)</option>
+                            <option value="LEN_lnR">Length: Link (Ramden's) (lnR)</option>
+                            <option value="LEN_m">Length: Meter (mtr)</option>
+                            <option value="LEN_u">Length: Micrometer (Micron) (u)</option>
+                            <option value="LEN_mil">Length: Mil (Milli-inch) (mil)</option>
+                            <option value="LEN_nmi">Length: Mile (nautical/sea) (nmi)</option>
+                            <option value="LEN_mi">Length: Mile (statute/land) (mi)</option>
+                            <option value="LEN_mm">Length: Millimeter (mm)</option>
+                            <option value="LEN_pica">Length: Pica (type size) (pica)</option>
+                            <option value="LEN_point">Length: Point (type size) (point)</option>
+                            <option value="LEN_rd">Length: Rod (rd)</option>
+                            <option value="LEN_yd">Length: Yard (yd)</option>
+                            <option value="VLIQ_bbl">Liquid Volume: Barrel (US) (bbl)</option>
+                            <option value="VLIQ_M3">Liquid Volume: Cubic meter (liquid) (m3)</option>
+                            <option value="VLIQ_cup">Liquid Volume: Cup (cup)</option>
+                            <option value="VLIQ_dr">Liquid Volume: Dram (US) (dr)</option>
+                            <option value="VLIQ_galUK">Liquid Volume: Gallon (UK) (gal)</option>
+                            <option value="VLIQ_galUS">Liquid Volume: Gallon (US) (gal)</option>
+                            <option value="VLIQ_gi">Liquid Volume: Gill (1/4 UK pint) (gi)</option>
+                            <option value="VLIQ_HL">Liquid Volume: Hectoliter (hL)</option>
+                            <option value="VLIQ_L">Liquid Volume: Liter (Ltr)</option>
+                            <option value="VLIQ_ml">Liquid Volume: Milliliter (ml)</option>
+                            <option value="VLIQ_ozUK">Liquid Volume: Ounce, fluid (UK) (fl. oz (UK))</option>
+                            <option value="VLIQ_ozUS">Liquid Volume: Ounce, fluid (US) (fl. oz (US))</option>
+                            <option value="VLIQ_ptUK">Liquid Volume: Pint (UK) (pt (UK))</option>
+                            <option value="VLIQ_ptUS">Liquid Volume: Pint (US) (pt (US))</option>
+                            <option value="VLIQ_qt">Liquid Volume: Quart (qt)</option>
+                            <option value="VLIQ_Tbs">Liquid Volume: Tablespoon (Tbs)</option>
+                            <option value="VLIQ_tsp">Liquid Volume: Teaspoon (tsp)</option>
+                            <option value="OTH_A">Other: Amphere - Electric current (A)</option>
+                            <option value="OTH_box">Other: Box (bx)</option>
+                            <option value="OTH_cd">Other: Candela - Luminosity (intensity of light) (cd)</option>
+                            <option value="OTH_ea">Other: Each (No)</option>
+                            <option value="OTH_mol">Other: Mole - Substance (molecule) (mol)</option>
+                            <option value="OTH_pk">Other: Package (pk)</option>
+                            <option value="OTH_pp">Other: Per Person (pp)</option>
+                            <option value="TEMP_C">Temperature: Degrees Celsius (C)</option>
+                            <option value="TEMP_F">Temperature: Degrees Fahrenheit (F)</option>
+                            <option value="TEMP_K">Temperature: Kelvin (K)</option>
+                            <option value="TF_century">Time/Frequency: Time in Centuries (century)</option>
+                            <option value="TF_day">Time/Frequency: Time in Days (day)</option>
+                            <option value="TF_decade">Time/Frequency: Time in Decades (decade)</option>
+                            <option value="TF_hr">Time/Frequency: Time in Hours (hr)</option>
+                            <option value="TF_millenium">Time/Frequency: Time in Millenia (millenium)</option>
+                            <option value="TF_ms">Time/Frequency: Time in Milli-Seconds (ms)</option>
+                            <option value="TF_min">Time/Frequency: Time in Minutes (min)</option>
+                            <option value="TF_mon">Time/Frequency: Time in Months (mon)</option>
+                            <option value="TF_score">Time/Frequency: Time in Scores (score)</option>
+                            <option value="TF_s">Time/Frequency: Time in Seconds (s)</option>
+                            <option value="TF_wk">Time/Frequency: Time in Weeks (wk)</option>
+                            <option value="TF_yr">Time/Frequency: Time in Years (yr)</option>
+                            <option value="WT_dr_avdp">Weight: Dram (avdp) (dr avdp)</option>
+                            <option value="WT_gr">Weight: Grain (gr)</option>
+                            <option value="WT_g">Weight: Gram (g)</option>
+                            <option value="WT_kg">Weight: Kilogram (kg)</option>
+                            <option value="WT_mg">Weight: Milligram (mg)</option>
+                            <option value="WT_oz">Weight: Ounce (avdp) (oz)</option>
+                            <option value="WT_oz_tr">Weight: Ounce (troy) (oz tr)</option>
+                            <option value="WT_dwt">Weight: Pennyweight (dwt)</option>
+                            <option value="WT_lb">Weight: Pound (avdp) (lb)</option>
+                            <option value="WT_st">Weight: Stone (st)</option>
+                            <option value="WT_lt">Weight: Ton (long or British) (lt)</option>
+                            <option value="WT_mt">Weight: Ton (metric) (mt)</option>
+                            <option value="WT_sh_t">Weight: Ton (short) (sh t)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">
+                    </td>
+                    <td colspan="4">
+                        <a class="smallSubmit" href="">Create Product </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                </tbody></table>
+        </form>
+        <script language="JavaScript" type="text/javascript">
+            var form = document.UpdatePassword;
+            form.currentPassword.focus();
+            if (jQuery(form).find(".required").size() > 0) {
+                jQuery(form).validate();
+            }
+        </script>
+        <!-- End  Form Widget - Form Element  component://ordersnew/widget/ordersnewForms.xml#CreatingConsumableProduct --></div></div>

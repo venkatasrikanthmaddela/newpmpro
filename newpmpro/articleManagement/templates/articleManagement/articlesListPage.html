@@ -1,0 +1,18 @@
+{% extends 'baseTemplate.html' %}
+{% block main_content %}
+    {% for each_article in allArticles %}
+        <div class="row">
+            <div class="large-12 small-12 columns large-centered">
+                <h2 class="get-title-font">
+                    {{ each_article.title }}
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-8 small-12 columns">
+                <p><b>Explanation:</b></p>
+                <p class="large-text-justify">{{ each_article.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock main_content %}

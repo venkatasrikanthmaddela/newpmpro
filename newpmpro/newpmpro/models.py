@@ -94,3 +94,32 @@ class ProjectRequests(CustomModel):
     user = models.ForeignKey(PmUser)
     projectInfo = models.ForeignKey(ProjectData)
     projectRequestStatus = models.CharField(max_length=25, default='REQUESTED')
+
+
+class Categories(CustomModel):
+    name = models.CharField(max_length=256)
+
+
+class Tags(CustomModel):
+    tagName = models.CharField(max_length=256)
+
+
+class HyperLinks(CustomModel):
+    linkName = models.TextField()
+    link = models.URLField()
+
+
+class Article(CustomModel):
+    title = models.TextField()
+    content = models.TextField()
+    codePart = models.TextField(default="NA")
+    author = models.ForeignKey(PmUser)
+    category = models.ForeignKey(Categories)
+    tags = models.ForeignKey(Tags)
+    links = models.ForeignKey(HyperLinks)
+    isActive = models.BooleanField(default=True)
+
+
+
+
+

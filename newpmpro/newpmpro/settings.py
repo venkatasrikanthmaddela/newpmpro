@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'newpmpro',
     'userManagement',
     'rest_framework',
-    'searchProjectManagement'
+    'searchProjectManagement',
+    'articleManagement'
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -10,6 +10,4 @@ class SaveProjectIdea(APIView):
         request.data.get("projectLanguage")
         request.data.get("ieePaper")
         request.data.get("projectAbstract")
-        
-
         return Response({"result": "success"}, 200)

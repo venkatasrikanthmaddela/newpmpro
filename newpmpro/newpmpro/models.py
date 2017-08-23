@@ -90,6 +90,14 @@ class ProjectIdeas(CustomModel):
             format(self.user.email,self.projectLanguage, self.projectIdeaStatus)
 
 
+class Article(CustomModel):
+    title = models.TextField()
+    content = models.TextField()
+    codePart = models.TextField(default="NA")
+    author = models.ForeignKey(PmUser)
+    isActive = models.BooleanField(default=True)
+
+
 class ProjectRequests(CustomModel):
     user = models.ForeignKey(PmUser)
     projectInfo = models.ForeignKey(ProjectData)
@@ -97,27 +105,19 @@ class ProjectRequests(CustomModel):
 
 
 class Categories(CustomModel):
+    articleId = models.ForeignKey(Article)
     name = models.CharField(max_length=256)
 
 
 class Tags(CustomModel):
+    articleId = models.ForeignKey(Article)
     tagName = models.CharField(max_length=256)
 
 
 class HyperLinks(CustomModel):
+    articleId = models.ForeignKey(Article)
     linkName = models.TextField()
     link = models.URLField()
-
-
-class Article(CustomModel):
-    title = models.TextField()
-    content = models.TextField()
-    codePart = models.TextField(default="NA")
-    author = models.ForeignKey(PmUser)
-    category = models.ForeignKey(Categories)
-    tags = models.ForeignKey(Tags)
-    links = models.ForeignKey(HyperLinks)
-    isActive = models.BooleanField(default=True)
 
 
 

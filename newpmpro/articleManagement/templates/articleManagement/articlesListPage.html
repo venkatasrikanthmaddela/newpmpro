@@ -16,22 +16,55 @@
             {% for each_article in allArticles %}
                 <div class="row">
                     <div class="large-12 small-12 columns">
-                        <h3 class="get-title-font">
-                            {{ each_article.title }}
-                        </h3>
+                        <h4 class="get-title-font">
+                            <b>{{ each_article.articleData.title }}</b>
+                        </h4>
+                        {% if each_article.categories %}
+                            <div>
+                                <span>Categories : </span>
+                                {% for each_category in each_article.categories %}
+                                    <span class="label primary">{{ each_category }}</span>
+                                {% endfor %}
+                            </div>
+                            <hr>
+                        {% endif %}
+                        {% if each_article.tags %}
+                            <div>
+                                <span>Tags : </span>
+                                {% for each_tag in each_article.tags %}
+                                    <span class="label secondary">{{ each_tag }}</span>
+                                {% endfor %}
+                            </div>
+                            <hr>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="large-10 small-12 columns">
+                    <div class="large-12 small-12 columns">
                         <p><b>Explanation:</b></p>
-                        <p class="large-text-justify">{{ each_article.content }}</p>
+                        <p class="large-text-justify">{{ each_article.articleData.content }}</p>
                     </div>
                 </div>
-                {% if each_article.links %}
-
-                {% endif %}
                 <div class="row">
-
+                    <p><b>External links :</b></p>
+                </div>
+                <div class="row">
+                    {% if each_article.links %}
+                        <div class="large-12 small-12 columns">
+                            {% for each_link in each_article.links %}
+                                <p>{{ forloop.counter }} : {{ each_link.linkName }}</p>
+                                <a href="{{ each_link.link }}" target="_blank">{{ each_link.link }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    <p><b>Sample Code :</b></p>
+                </div>
+                <div class="row">
+                    <div class="large-12 small-12 columns" style="background-color: #e6e6e6">
+                        <pre>{{ each_article.articleData.codePart }}</pre>
+                    </div>
                 </div>
             {% endfor %}
         </div>

@@ -30,5 +30,4 @@ def articlesListPage(request):
                 )
         article_data["articleData"] = each_article
         articles_list.append(article_data)
-    print article_data
-    return render(request, 'articleManagement/articlesListPage.html', {"allArticles":totalArticles})
+    return render(request, 'articleManagement/articlesListPage.html', {"allArticles":articles_list})

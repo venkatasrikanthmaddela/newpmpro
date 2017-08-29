@@ -10,7 +10,16 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, div{
 
 .get-title-font{
     font-family: 'Quicksand', sans-serif;
-    /*font-weight: 300;*/
+    font-weight: 300;
+}
+
+.article-title{
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+.article-sub-title {
+    font-size: 20px;
 }
 
 li{

@@ -92,6 +92,7 @@ class ProjectIdeas(CustomModel):
 
 class Article(CustomModel):
     title = models.TextField()
+    subTitle = models.TextField(default="NA")
     content = models.TextField()
     codePart = models.TextField(default="NA")
     author = models.ForeignKey(PmUser)

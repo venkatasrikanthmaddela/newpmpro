@@ -121,6 +121,12 @@ class HyperLinks(CustomModel):
     link = models.URLField()
 
 
+class ArticleFeedBack(CustomModel):
+    article = models.ForeignKey(Article, default=None)
+    user = models.ForeignKey(PmUser, default=None)
+    likeCount = models.IntegerField(default=0)
+
+
 
 
 

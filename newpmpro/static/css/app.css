@@ -27,6 +27,11 @@ li{
     padding: 30px 40px;
 }
 
+.article-code-part{
+    background-color: #e6e6e6;
+    font-size: 55px;
+}
+
 ul li a{
     color: black;
 }

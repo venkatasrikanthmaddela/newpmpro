@@ -66,8 +66,14 @@
                     <p><b>Sample Code :</b></p>
                 </div>
                 <div class="row">
-                    <div class="large-12 small-12 columns" style="background-color: #e6e6e6">
-                        <pre>{{ each_article.articleData.codePart }}</pre>
+                    <div class="large-12 small-12 columns" style="background-color: #e6e6e6;">
+                        <pre style="font-size: 14px; height: 600px;">{{ each_article.articleData.codePart }}</pre>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="large-12 small-12 columns">
+                        <a class="button primary vote-for-the-article" data-article-id="{{ each_article.pk }}">VOTE IF IT IS HELPFUL</a>
                     </div>
                 </div>
             {% endfor %}

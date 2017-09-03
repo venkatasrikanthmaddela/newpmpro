@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
-from articleManagement.views import articlesListPage
+from articleManagement.api_views import VoteForTheArticle
 
 urlpatterns = [
-    url(r'vote',)
+    url(r'vote', VoteForTheArticle.as_view())
 ]

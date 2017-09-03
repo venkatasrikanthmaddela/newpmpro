@@ -21,7 +21,7 @@ $(document).ready(function(){
         formData.append("projectAbstract", $("#projectAbstract").val());
         var projectIdeaCallBacks = {
             "success": function(data){
-                alert("success")
+                alert("succes")
             },
             "error": function(data){
                 alert("error")

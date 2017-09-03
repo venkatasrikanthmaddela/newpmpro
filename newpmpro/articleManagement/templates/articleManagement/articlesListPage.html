@@ -1,93 +1,58 @@
-{% extends 'baseTemplate.html' %}
+{% extends "baseTemplate.html" %}
+
 {% block main_content %}
-    <div class="row">
-        <div class="large-2 small-2 columns">
-            <table>
-                <tbody>
-                <tr>
-                    <th>
-                        Top Articles
-                    </th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="large-8 small-8 columns">
-            {% for each_article in allArticles %}
-                <div class="row">
-                    <div class="large-12 small-12 columns">
-                        <h1 class="article-title">
-                            {{ each_article.articleData.title }}
-                        </h1>
-                        <h2 class="article-sub-title">
-                            {{ each_article.articleData.subTitle }}
-                        </h2>
-                        <hr>
-                        {% if each_article.categories %}
-                            <div>
-                                <span>Categories : </span>
-                                {% for each_category in each_article.categories %}
-                                    <span class="label primary">{{ each_category }}</span>
-                                {% endfor %}
-                            </div>
-                            <hr>
-                        {% endif %}
-                        {% if each_article.tags %}
-                            <div>
-                                <span>Tags : </span>
-                                {% for each_tag in each_article.tags %}
-                                    <span class="label secondary">{{ each_tag }}</span>
-                                {% endfor %}
-                            </div>
-                            <hr>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns">
-                        <p><b>Explanation:</b></p>
-                        <p class="large-text-justify">{{ each_article.articleData.content }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <p><b>External links :</b></p>
-                </div>
-                <div class="row">
-                    {% if each_article.links %}
+    <div class="">
+        <div class="row">
+            <div class="large-2 small-2 columns">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Top Articles</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for each_article in top_articles %}
+                        <tr>
+                            <td><a><u>{{ each_article.title }}</u></a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="large-8 small-8 columns">
+                {% for article in articles_list %}
+                    <div class="row">
                         <div class="large-12 small-12 columns">
-                            {% for each_link in each_article.links %}
-                                <p>{{ forloop.counter }} : {{ each_link.linkName }}</p>
-                                <a href="{{ each_link.link }}" target="_blank">{{ each_link.link }}</a>
-                            {% endfor %}
+                            <div class="callout secondary">
+                                <h5><a href="{% url 'article-page' %}?article-id={{ article.id }}" target="_blank">{{ article.title }}</a></h5>
+                                {% if article.subTitle and article.subTitle != "None" %}
+                                <p>
+                                    {{ article.subTitle }}<a href="{% url 'article-page' %}?article-id={{ article.id }}" target="_blank">Read More..</a>
+                                </p>
+                                {% endif %}
+                            </div>
                         </div>
-                    {% endif %}
-                </div>
-                <div class="row">
-                    <p><b>Sample Code :</b></p>
-                </div>
-                <div class="row">
-                    <div class="large-12 small-12 columns" style="background-color: #e6e6e6;">
-                        <pre style="font-size: 14px; height: 600px;">{{ each_article.articleData.codePart }}</pre>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="large-12 small-12 columns">
-                        <a class="button primary vote-for-the-article" data-article-id="{{ each_article.pk }}">VOTE IF IT IS HELPFUL</a>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="large-2 small-2 columns">
-            <table>
-                <tbody>
-                <tr>
-                    <th>
-                        Top Tags
-                    </th>
-                </tr>
-                </tbody>
-            </table>
+                {% endfor %}
+            </div>
+            <div class="large-2 small-2 columns">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Top Tags</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for each_tag in top_tags %}
+                        <tr>
+                            <td><a><u>{{ each_tag.tagName }}</u></a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
 {% endblock main_content %}

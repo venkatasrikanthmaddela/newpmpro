@@ -1,33 +1,24 @@
 from django.shortcuts import render
+from django.views import View
+from articleManagement.utils import get_article_data
 from newpmpro.models import Article, Categories, Tags, HyperLinks
+from django.views import generic
 
 
-def articlesListPage(request):
-    articles_list = list()
-    totalArticles = Article.objects.all()
-    for each_article in totalArticles:
-        categories_list = Categories.objects.filter(articleId=each_article.id).values_list('name', flat=True)
-        tags_list = Tags.objects.filter(articleId=each_article.id).values_list('tagName', flat=True)
-        links_list = HyperLinks.objects.filter(articleId=each_article.id)
-        article_data = {"categories": [],
-                        "tags": [],
-                        "links": [],
-                        "articleData": {}
-                        }
-        if categories_list:
-            for each_category in categories_list:
-                article_data["categories"].append(each_category)
-        if tags_list:
-            for each_tag in tags_list:
-                article_data["tags"].append(each_tag)
-        if links_list:
-            for each_link_data in links_list:
-                article_data["links"].append(
-                    {
-                        "linkName": each_link_data.linkName,
-                        "link": each_link_data.link
-                    }
-                )
-        article_data["articleData"] = each_article
-        articles_list.append(article_data)
-    return render(request, 'articleManagement/articlesListPage.html', {"allArticles":articles_list})
+class ArticlesListPage(generic.ListView):
+    model = Article
+    context_object_name = "articles_list"
+    queryset = Article.objects.all()
+    template_name = 'articleManagement/articlesListPage.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticlesListPage, self).get_context_data(**kwargs)
+        context["top_articles"] = Article.objects.all()[:20]
+        context["top_tags"] = Tags.objects.all()[:20]
+        return context
+
+
+def article_page(request):
+    article_id = request.GET.get("article-id")
+    articles_list = get_article_data(article_id, request)
+    return render(request, 'articleManagement/articlePage.html', {"allArticles": articles_list})

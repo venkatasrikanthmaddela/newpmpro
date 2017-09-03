@@ -92,9 +92,9 @@ class ProjectIdeas(CustomModel):
 
 class Article(CustomModel):
     title = models.TextField()
-    subTitle = models.TextField(default="NA")
+    subTitle = models.TextField(default=None)
     content = models.TextField()
-    codePart = models.TextField(default="NA")
+    codePart = models.TextField(default=None)
     author = models.ForeignKey(PmUser)
     isActive = models.BooleanField(default=True)
 

@@ -31,6 +31,9 @@ $(document).ready(function(){
                 if(window.location.pathname == "/new-project-idea"){
                     window.location.reload();
                 }
+                if(window.location.pathname == "/articles/see-article"){
+                    window.location.reload();
+                }
             },
             "error": function(data){
                 console.log(data.responseJSON.error);
@@ -58,6 +61,9 @@ $(document).ready(function(){
                     }
                 }
                 if(window.location.pathname == "/new-project-idea"){
+                    window.location.reload();
+                }
+                if(window.location.pathname == "/articles/see-article"){
                     window.location.reload();
                 }
             },

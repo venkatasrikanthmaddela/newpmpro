@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from newpmpro.models import PmUser, ArticleFeedBack, Article
+from articleManagement.models import PmUser, ArticleFeedBack, Article
 
 
 class VoteForTheArticle(APIView):
@@ -26,5 +26,13 @@ class VoteForTheArticle(APIView):
                 article_feedback_obj = ArticleFeedBack(article=article_object, user=user_object, likeCount=like_count+1)
                 article_feedback_obj.save()
                 return Response({"result": "success", "message": "thanks for your feedback"}, 200)
+        except Exception as e:
+            return Response({"result": "error", "message": ""}, 500)
+
+
+class SendArticleForReview(APIView):
+    def post(self, request):
+        try:
+            return Response({"result": "success"}, 200)
         except Exception as e:
             return Response({"result": "error", "message": "something went wrong. please try again later"}, 500)

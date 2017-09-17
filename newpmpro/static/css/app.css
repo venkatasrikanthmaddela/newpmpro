@@ -32,6 +32,10 @@ li{
     font-size: 55px;
 }
 
+.article-editor{
+    height: 200px;
+}
+
 ul li a{
     color: black;
 }

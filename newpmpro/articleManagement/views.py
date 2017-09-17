@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from articleManagement.utils import get_article_data
-from newpmpro.models import Article, Categories, Tags, HyperLinks
+from articleManagement.models import Article, Tags
 from django.views import generic
 
 
@@ -16,6 +16,10 @@ class ArticlesListPage(generic.ListView):
         context["top_articles"] = Article.objects.all()[:20]
         context["top_tags"] = Tags.objects.all()[:20]
         return context
+
+
+def post_article_page(request):
+    return render(request, 'articleManagement/postArticle.html')
 
 
 def article_page(request):

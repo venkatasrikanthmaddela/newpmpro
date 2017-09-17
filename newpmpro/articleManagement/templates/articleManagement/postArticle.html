@@ -1,0 +1,40 @@
+{% extends "baseTemplate.html" %}
+{% load static %}
+{% block main_content %}
+    <div class="row">
+        <div class="large-10 small-12 columns large-centered">
+            <h2 class="text-center get-title-font">Post Your Article</h2>
+            <form id="articlePostForm">
+                <label>
+                    <h5>Enter Article Title</h5>
+                    <input type="text" id="ArticleTitle" name="articleTitle" aria-describedby="articleTitleHelpText">
+                </label>
+                <p class="help-text" id="articleTitleHelpText">Make sure that you article is unique, short and straight</p>
+                <label>
+                    <h5>Enter Article Sub-title(optional)</h5>
+                    <input type="text" id="#ArticleSubTitle" name="articleSubTitle" aria-describedby="articleSubTitleHelpText">
+                </label>
+                <p class="help-text" id="articleSubTitleHelpText">sub-title may include the problem statement</p>
+                <label>
+                    <h5>Write your Article here.</h5>
+                </label>
+                <div class="ArticleEditor article-editor">
+                </div>
+                <label>
+                    <h5>Write your Code part here.</h5>
+                </label>
+                <div class="CodeEditor" aria-describedby="codeEditorHelpText">
+                    <pre>Sample code here</pre>
+                </div>
+                <p id="codeEditorHelpText">Try to write executable code</p>
+                <div>
+                    <a class="button btn-primary">See Preview</a>
+                    <a class="button btn-primary send-article-for-review" data-form-id="articlePostForm">Send for review</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock main_content %}
+{% block javascript %}
+    <script src="{% static 'js/articleManagement/postArticle.js' %}" type="text/javascript"></script>
+{% endblock javascript %}

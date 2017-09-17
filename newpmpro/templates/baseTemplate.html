@@ -12,6 +12,9 @@
         <link type="text/css" href="{% static 'css/lyejwr.css' %}" rel="stylesheet" >
         <link type="text/css" href="{% static 'css/dataTables.foundation.min.css' %}" rel="stylesheet">
         <link type="text/css" href="{% static 'foundation-icons/foundation-icons.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'css/quill.snow.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'css/quill.bubble.css' %}" rel="stylesheet">
+        <link type="text/css" href="{% static 'css/quill.core.css' %}" rel="stylesheet">
     {% endblock css %}
     <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.dataTables.min.js' %}"></script>
@@ -20,6 +23,10 @@
     <script type="text/javascript" src="{% static 'js/vendor/foundation.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/utils/utils.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/quill.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/quill.core.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/quill.js' %}"></script>
+{#    <script type="text/javascript" src="{% static 'js/modules/toolbar.js' %}"></script>#}
     {% block javascript %}
     {% endblock javascript %}
 </head>
@@ -62,6 +69,7 @@
 {#                </ul>#}
 {#            </li>#}
             <li><a href="{% url 'new-project-idea' %}">NEW PROJECT IDEA</a></li>
+            <li><a href="{% url 'post-article' %}">Post An Article</a></li>
             <li><a href="#">CONTACT US</a></li>
         </ul>
     </div>

@@ -1,7 +1,7 @@
 
 
 # article data utils
-from newpmpro.models import Article, Categories, Tags, HyperLinks, ArticleFeedBack, PmUser
+from articleManagement.models import Article, Categories, Tags, HyperLinks, ArticleFeedBack, PmUser, ArticleRelatedTags
 
 
 def get_article_data(article_id, request=None):
@@ -21,7 +21,7 @@ def get_article_data(article_id, request=None):
     isVoted = False
     each_article = Article.objects.get(id=article_id)
     categories_list = Categories.objects.filter(articleId=each_article.id).values_list('name', flat=True)
-    tags_list = Tags.objects.filter(articleId=each_article.id).values_list('tagName', flat=True)
+    tags_list = ArticleRelatedTags.objects.filter(articleId=each_article.id).values_list('tag__tagName', flat=True)
     links_list = HyperLinks.objects.filter(articleId=each_article.id)
     votes_list = ArticleFeedBack.objects.filter(article=each_article)
     if request:

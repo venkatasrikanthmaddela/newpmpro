@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from articleManagement.models import PmUser, ArticleFeedBack, Article
+from articleManagement.utils import ArticleManagement
 
 
 class VoteForTheArticle(APIView):
@@ -33,6 +34,17 @@ class VoteForTheArticle(APIView):
 class SendArticleForReview(APIView):
     def post(self, request):
         try:
+            article_mgmt_init = ArticleManagement()
+            insert_format = article_mgmt_init.get_insert_format()
+            insert_format["content"] = request.data.get("articleBody")
+            insert_format["codePart"] = request.data.get("articleCodePart")
+            insert_format["author_id"] = PmUser.get_user_object(request.user.email)
+            insert_format["subTitle"] = request.data.get("articleSubTitle")
+            insert_format["title"] = request.data.get("articleTitle")
+            insert_format["isActive"] = False
+            article_insert_result = article_mgmt_init.insert_article(insert_format)
+            if article_insert_result.get("error"):
+                return Response({"result": "error", "msg": article_insert_result.get("error")}, 500)
             return Response({"result": "success"}, 200)
         except Exception as e:
             return Response({"result": "error", "message": "something went wrong. please try again later"}, 500)

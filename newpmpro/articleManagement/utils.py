@@ -1,5 +1,4 @@
 
-
 # article data utils
 from articleManagement.models import Article, Categories, Tags, HyperLinks, ArticleFeedBack, PmUser, ArticleRelatedTags
 
@@ -59,3 +58,31 @@ def get_article_data(article_id, request=None):
     return articles_list
 
 
+class ArticleManagement:
+    def __init__(self):
+        self.column_names = Article.get_model_field_names()
+        self.insert_format = dict()
+
+    def get_insert_format(self):
+        for each_col in self.column_names:
+            if each_col != "id":
+                self.insert_format[each_col] = ""
+        return self.insert_format
+
+    def insert_article(self, data, **kwargs):
+        result_map = dict()
+        try:
+            # for key, value in data.iteritems():
+            #     # if key not in self.column_names:
+            #     #     result_map["error"] = key + "is not allowed here or incorrect. please check"
+            #     #     return result_map
+            result_obj = Article().create_article(data)
+            if result_map == "error":
+                result_map["error"] = "something went wrong"
+                return result_map
+            else:
+                result_map["success"] = result_obj
+                return result_map
+        except Exception as e:
+            result_map["error"] = e.message
+            return result_map

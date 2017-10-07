@@ -54,6 +54,10 @@ class PmUser(AbstractBaseUser, CustomModel, PermissionsMixin):
     def get_short_name(self):
         return self.first_name
 
+    @classmethod
+    def get_user_object(cls, user_email):
+        user_obj = PmUser.objects.get(email=user_email)
+        return user_obj
 
 auth_models.User = PmUser
 

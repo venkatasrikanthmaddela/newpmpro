@@ -5,27 +5,20 @@ $(document).ready(function(){
         theme:'snow'
     };
     var ArticleEditorQuillObject = new Quill('.ArticleEditor', ArticleEditorOptions);
-
-    var toolbarOptions = ['code'];
     var CodeEditorOptions = {
         debug:'info',
         placeholder: 'your code goes here..',
-        theme:'snow'
+        theme:'bubble'
     };
     var CodeEditorQuillObject = new Quill('.CodeEditor', CodeEditorOptions);
 
     $(".send-article-for-review").click(function(){
-        var title = $("#ArticleTitle").val();
-        var subTitle = $("#ArticleSubTitle").val();
-        var articleBody = CodeEditorQuillObject.container.firstChild.innerHTML;
+        var articleBody = ArticleEditorQuillObject.container.firstChild.innerHTML;
         var articleCodePart = CodeEditorQuillObject.container.firstChild.innerHTML;
-        //var formData = new FormData($('#articlePostForm')[0]);
-        var formData = {
-            "articleTitle":title,
-            "articleSubTitle":subTitle,
-            "articleBody":articleBody,
-            "articleCodePart":articleCodePart
-        };
+        var formData = new FormData($('#articlePostForm')[0]);
+        formData.append('articleBody', articleBody);
+        formData.append('articleCodePart', articleCodePart);
+        console.log(formData);
         var articleReviewCallBacks = {
             "success": function(data){
                 alert("success");
@@ -34,6 +27,6 @@ $(document).ready(function(){
                 alert("error");
             }
         };
-        window.pmprojectutils.getResponse('POST', '/api/article/send-for-review', {"articleData":formData}, articleReviewCallBacks, false);
+        window.pmprojectutils.getResponse('POST', '/api/article/send-for-review', formData , articleReviewCallBacks, true);
     });
 });

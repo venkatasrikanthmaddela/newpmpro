@@ -72,10 +72,6 @@ class ArticleManagement:
     def insert_article(self, data, **kwargs):
         result_map = dict()
         try:
-            # for key, value in data.iteritems():
-            #     # if key not in self.column_names:
-            #     #     result_map["error"] = key + "is not allowed here or incorrect. please check"
-            #     #     return result_map
             result_obj = Article().create_article(data)
             if result_map == "error":
                 result_map["error"] = "something went wrong"

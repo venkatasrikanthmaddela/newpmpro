@@ -32,6 +32,7 @@ class Article(CustomModel):
         except Exception as e:
             return "error"
 
+
 class Tags(CustomModel):
     tagName = models.CharField(max_length=256)
 

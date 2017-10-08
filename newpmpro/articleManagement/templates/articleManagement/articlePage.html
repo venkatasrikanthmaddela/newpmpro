@@ -2,6 +2,13 @@
 {% load static %}
 {% block main_content %}
     <div class="row">
+        <div class="large-10 small-12 columns large-centered">
+            <div class="text-right">
+                <a href="{% url 'articles-list-page' %}"><< Back to articles page</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="large-2 small-2 columns">
             <table>
                 <tbody>
@@ -68,7 +75,7 @@
                 <div class="row">
                     <div class="large-12 small-12 columns">
                         <p><b>Explanation:</b></p>
-                        <p class="large-text-justify">{{ each_article.articleData.content }}</p>
+                        {{ each_article.articleData.content|safe }}
                     </div>
                 </div>
                 {% if each_article.links %}
@@ -89,9 +96,8 @@
                         <p><b>Sample Code :</b></p>
                     </div>
                     <div class="row">
-
                         <div class="large-12 small-12 columns" style="background-color: #e6e6e6;">
-                            <pre style="font-size: 14px; height: 600px;">{{ each_article.articleData.codePart }}</pre>
+                            <pre style="font-size: 14px; height: 600px;">{{ each_article.articleData.codePart|safe }}</pre>
                         </div>
                     </div>
                 {% endif %}
@@ -119,7 +125,7 @@
             </table>
         </div>
     </div>
-    {% include 'loginModals.html' %}
+    {% include 'modals.html' %}
 {% endblock main_content %}
 {% block javascript %}
     <script src="{% static 'js/loginPageManagement/userLogin.js' %}"></script>

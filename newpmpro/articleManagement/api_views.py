@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from articleManagement.models import PmUser, ArticleFeedBack, Article
+from articleManagement.models import PmUser, ArticleFeedBack, Article, Tags
 from articleManagement.utils import ArticleManagement
 
 
@@ -48,3 +48,12 @@ class SendArticleForReview(APIView):
             return Response({"result": "success"}, 200)
         except Exception as e:
             return Response({"result": "error", "message": "something went wrong. please try again later"}, 500)
+
+
+class GetArticleTags(APIView):
+    def get(self, request):
+        try:
+            tags_list = Tags.objects.all().values_list('tagName', flat=True)
+            return Response({"result": "success", "tags": tags_list}, 200)
+        except Exception as e:
+            return Response({"result": "error"}, 500)

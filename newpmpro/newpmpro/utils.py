@@ -42,3 +42,14 @@ def get_session_key(request):
 
 def get_friendly_name(key):
     return FRIENDLY_NAMES.get(key, key)
+
+
+def to_map(entries):
+    result_map = dict()
+    if len(entries) % 2 != 0:
+        raise Exception("please send even params")
+    else:
+        entries = iter(entries)
+        for each_item in entries:
+            result_map[each_item] = next(entries)
+    return result_map

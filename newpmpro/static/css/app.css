@@ -33,11 +33,15 @@ li{
 }
 
 .article-editor{
-    height: 200px;
+    height: 200px!important;
 }
 
 ul li a{
     color: black;
+}
+
+.code-editor pre{
+    height: 200px!important;
 }
 
 .set-height{

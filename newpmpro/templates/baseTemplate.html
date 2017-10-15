@@ -83,7 +83,7 @@
                     <a href="#">Welcome,{{ request.user.username }}</a>
                     <ul class="menu">
                         <li><a href="#">My Profile</a></li>
-                        <li><a href="#">My Dashboard</a></li>
+                        <li><a href="{% url 'dash-board' %}">My Dashboard</a></li>
                         <li><a href="{% url 'log-out' %}">Logout</a></li>
                     </ul>
                 </li>

@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'new-project-idea', new_project_idea_page, name='new-project-idea'),
     url(r'articles/', include('articleManagement.urls'), name='articles-page'),
+    url(r'user/', include('userManagement.urls'), name='user-pages'),
     # url(r'search-project', search_project_page, name='search-projects'),
     url(r'account/api/', include('userManagement.api_urls')),
     url(r'api/project/', include('searchProjectManagement.api_urls')),

@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from newpmpro.models import PmUser, ProjectIdeas, UserSources, PartnerDetails, ProjectData, ProjectRequests
-from articleManagement.models import Article, Categories, Tags, HyperLinks, ArticleRelatedTags
+from articleManagement.models import Article, Categories, Tags, HyperLinks, ArticleRelatedTags, ArticleRelatedCategories, \
+    ArticleRequests
 
 # admin.site.register(PmUser)
 admin.site.register(ProjectIdeas)
@@ -15,5 +16,7 @@ admin.site.register(Categories)
 admin.site.register(Tags)
 admin.site.register(ArticleRelatedTags)
 admin.site.register(HyperLinks)
+admin.site.register(ArticleRelatedCategories)
+admin.site.register(ArticleRequests)
 
 

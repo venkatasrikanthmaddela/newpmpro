@@ -28,7 +28,7 @@ class Article(CustomModel):
             self.author = article_data.get("author_id")
             self.isActive = article_data.get("isActive")
             self.save()
-            return "success"
+            return self
         except Exception as e:
             return "error"
 
@@ -36,15 +36,55 @@ class Article(CustomModel):
 class Tags(CustomModel):
     tagName = models.CharField(max_length=256)
 
+    def save_tag(self, tag):
+        try:
+            tag_info = Tags.objects.get(tagName=tag)
+            return tag_info
+        except Tags.DoesNotExist:
+            self.tagName = tag
+            self.save()
+            return self
+
+
+class Categories(CustomModel):
+    name = models.CharField(max_length=256)
+
+    def save_category(self, category):
+        try:
+            category_info = Categories.objects.get(name=category)
+            return category_info
+        except Categories.DoesNotExist:
+            self.name = category
+            self.save()
+            return self
+
 
 class ArticleRelatedTags(CustomModel):
     articleId = models.ForeignKey(Article)
     tag = models.ForeignKey(Tags)
 
+    def map_article_with_tags(self, article_id, tag_id):
+        try:
+            self.articleId = Article.objects.get(id=article_id)
+            self.tag = Tags.objects.get(id=tag_id)
+            self.save()
+            return self
+        except:
+            return "error"
 
-class Categories(CustomModel):
+
+class ArticleRelatedCategories(CustomModel):
     articleId = models.ForeignKey(Article)
-    name = models.CharField(max_length=256)
+    category = models.ForeignKey(Categories)
+
+    def map_article_with_category(self, article_id, category_id):
+        try:
+            self.articleId = Article.objects.get(id=article_id)
+            self.category = Categories.objects.get(id=category_id)
+            self.save()
+            return self
+        except:
+            return "error"
 
 
 class HyperLinks(CustomModel):

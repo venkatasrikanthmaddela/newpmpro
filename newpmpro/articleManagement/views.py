@@ -22,6 +22,7 @@ def post_article_page(request):
     return render(request, 'articleManagement/postArticle.html')
 
 
+
 def article_page(request):
     article_id = request.GET.get("article-id")
     articles_list = get_article_data(article_id, request)

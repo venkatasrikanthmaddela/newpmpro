@@ -59,8 +59,34 @@
             <i class="fa-save"></i>
             <h4 class="get-title-font">Your article is successfully submitted</h4>
             <div>
-                <a class="btn-primary button small align-center">See article status</a>
+                <a class="btn-primary button small align-center" href="{% url 'dash-board' %}?page=article-requests">See article status</a>
                 <a class="btn-primary button small align-center" href="{% url 'post-article' %}">Write another article</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="reveal tiny" id="tagRemovalModal" data-reveal>
+    <div class="row set-height">
+        <div class="large-10 small-12 columns large-centered">
+            <i class="fa-save"></i>
+            <h6 class="get-title-font">Do you want to remove this tag ??</h6>
+            <div>
+                <a class="small align-center">No</a>
+                <a class="small align-center delete-tag">Proceed</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="reveal tiny" id="categoryRemovalModal" data-reveal>
+    <div class="row set-height">
+        <div class="large-10 small-12 columns large-centered">
+            <i class="fa-save"></i>
+            <h6 class="get-title-font">Do you want to remove this category ??</h6>
+            <div>
+                <a class="small align-center">No</a>
+                <a class="small align-center delete-category">Proceed</a>
             </div>
         </div>
     </div>

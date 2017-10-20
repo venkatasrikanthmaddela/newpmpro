@@ -1,0 +1,30 @@
+{% extends "baseTemplate.html" %}
+{% block main_content %}
+    <div class="row set-height">
+        <h4 class="text-center get-title-font">Hi, {{ request.user.username }}</h4>
+        <h5 class="text-center get-title-font">Glad to have you here.</h5>
+        <hr>
+        <div class="large-2 small-2 columns">
+            <ul class="vertical menu">
+                <li><a href="#">Announcements</a></li>
+                <li><a class="active" href="?page=article-requests">Article Requests</a></li>
+                <li><a href="#">My Profile</a></li>
+                <li><a href="#">My Rewards</a></li>
+            </ul>
+        </div>
+        <div class="large-10 small-10 columns">
+            {% if dashBoardData.articleRequests %}
+                {% for each_request in dashBoardData.articleRequests %}
+                    <div class="row callout secondary">
+                        <div class="large-10 small-10 columns">
+                                <h5><a>{{ each_request.article.title }}</a></h5>
+                        </div>
+                        <div class="large-2 small-12 columns">
+                            <p class="get-title-font">STATUS : <b>{{ each_request.requestStatus }}</b></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock main_content %}

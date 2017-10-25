@@ -4,32 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Welocme to findLogic.com</title>
-    {% block css %}
-{#        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">#}
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-        <link href="{% static 'css/app.css' %}" rel="stylesheet">
-        <link type="text/css" href="{% static 'css/lyejwr.css' %}" rel="stylesheet" >
-        <link type="text/css" href="{% static 'css/dataTables.foundation.min.css' %}" rel="stylesheet">
-        <link type="text/css" href="{% static 'css/foundation.css' %}" rel="stylesheet">
-        <link type="text/css" href="{% static 'foundation-icons/foundation-icons.css' %}" rel="stylesheet">
-        <link type="text/css" href="{% static 'css/quill.snow.css' %}" rel="stylesheet">
-        <link type="text/css" href="{% static 'css/quill.bubble.css' %}" rel="stylesheet">
-        <link type="text/css" href="{% static 'css/quill.core.css' %}" rel="stylesheet">
-        <link href="{% static 'css/jquery-ui.css' %}" rel="Stylesheet">
-    {% endblock css %}
-    <script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.dataTables.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/dataTables.foundation.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/vendor/what-input.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/vendor/foundation.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/utils/utils.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/quill.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/quill.core.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/quill.js' %}"></script>
-    <script src="{% static 'js/jquery-ui.js' %}" ></script>
-{#    <script type="text/javascript" src="{% static 'js/modules/toolbar.js' %}"></script>#}
+    {% include 'linkFiles.html' %}
     {% block javascript %}
     {% endblock javascript %}
 </head>

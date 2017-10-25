@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'userManagement',
     'rest_framework',
     'searchProjectManagement',
-    'articleManagement'
+    'articleManagement',
+    'adminStoreManagement'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -139,3 +140,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+ADMIN_LOGIN_URL = '/store/'

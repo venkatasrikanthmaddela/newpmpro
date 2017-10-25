@@ -1,0 +1,38 @@
+{% extends 'adminBase.html' %}
+{% block admin_nav_bar %}
+    <li><a>See Article Requests</a></li>
+{% endblock admin_nav_bar %}
+{% block content %}
+    <div class="row set-height">
+        <div class="large-4 columns">
+            <div class="card">
+                <div class="card-divider">
+                    <h4 class="text-center">Users till Now</h4>
+                </div>
+                <div class="card-section">
+                    <h2 class="text-center"><a>{{ statistics.userCount }}</a></h2>
+                </div>
+            </div>
+        </div>
+         <div class="large-4 columns">
+            <div class="card">
+                <div class="card-divider">
+                    <h4 class="text-center">New Article Requests</h4>
+                </div>
+                <div class="card-section">
+                    <h2 class="text-center"><a>{{ statistics.articleRequests }}</a></h2>
+                </div>
+            </div>
+        </div>
+         <div class="large-4 columns">
+            <div class="card">
+                <div class="card-divider">
+                    <h4 class="text-center">Project Ideas</h4>
+                </div>
+                <div class="card-section">
+                    <h2 class="text-center"><a>{{ statistics.newProjectIdeas }}</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

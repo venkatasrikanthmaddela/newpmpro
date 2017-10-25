@@ -32,3 +32,7 @@ def search_project_page(request):
     except:
         return render(request, 'searchProjectManagement/searchProjects.html',
                       {"projectData": project_data, "requestedProjects": requested_projects})
+
+
+def admin_login_page(request, kwargs):
+    return

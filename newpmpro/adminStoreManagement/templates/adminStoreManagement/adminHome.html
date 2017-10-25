@@ -1,0 +1,31 @@
+{% extends 'adminBase.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="large-6 small-12 large-centered">
+            <form class="admin-log-in-form" id="admin-log-in-form">
+                {% if error %}
+                    <div class="alert callout" data-closable>
+                        {{ error }}
+                        <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+                <h4 class="text-center">Log in to admin store</h4>
+                <label>Email
+                    <input type="email" id="email-id" name="username" placeholder="login with admin email">
+                </label>
+                <label>Password
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </label>
+                <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+                <p class="text-center"><a class="button medium" id="adminLoginButton">Log In</a></p>
+                <p class="text-center"><a href="#">Forgot your password?</a></p>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+{% block javascript %}
+     <script src="{% static 'js/adminStoreManagement/adminLogin.js' %}"></script>
+{% endblock javascript %}

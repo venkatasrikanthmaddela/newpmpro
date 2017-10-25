@@ -1,0 +1,28 @@
+<html>
+<head>
+    {% include 'linkFiles.html' %}
+    {% block javascript %}
+    {% endblock javascript %}
+</head>
+<body>
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Admin Store Front</li>
+            {% block admin_nav_bar %}
+            {% endblock admin_nav_bar %}
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            {% if request.user.email %}
+                <li><a>Welcome, {{ request.user.username }}</a></li>
+                <li><a href="{% url 'admin-log-out' %}">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% block content %}
+{% endblock content %}
+</body>
+</html>

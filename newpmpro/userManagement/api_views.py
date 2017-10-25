@@ -9,6 +9,7 @@ import datetime
 
 from newpmpro.exceptions import UnAuthorizedException
 from newpmpro.models import UserSources
+from newpmpro.settings import ADMIN_LOGIN_URL
 from newpmpro.utils import get_log_string, get_friendly_name
 from django.utils.datastructures import MultiValueDictKeyError
 
@@ -55,7 +56,7 @@ class SignUpUser(APIView):
             if source == 'direct':
                 return sign_up_directly(request)
         except:
-            return ({"result":"error"}, 500)
+            return Response({"result": "error"}, 500)
         return Response({"result": "success"}, 200)
 
 
@@ -63,7 +64,20 @@ class LogoutUser(APIView):
     def get(self, request):
         try:
             logout(request)
-            return redirect('/')
+            if request.path == ADMIN_LOGIN_URL:
+                return redirect(ADMIN_LOGIN_URL)
+            else:
+                return redirect('/')
+        except Exception as e:
+            logger.error(get_log_string('error: '+str(e),request=request),exc_info=True)
+            return Response({"result": "error"}, 500)
+
+
+class LogoutAdmin(APIView):
+    def get(self, request):
+        try:
+            logout(request)
+            return redirect(ADMIN_LOGIN_URL)
         except Exception as e:
             logger.error(get_log_string('error: '+str(e),request=request),exc_info=True)
             return Response({"result": "error"}, 500)

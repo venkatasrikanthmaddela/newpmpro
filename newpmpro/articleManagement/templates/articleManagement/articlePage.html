@@ -43,13 +43,21 @@
                         </table>
                     </div>
                     <div class="large-10 small-10 columns">
+                    {% if isSuperUser and each_article.isArticleRequested %}
+                        <input type="text" id="articleId" value="{{ each_article.articleData.title }}">
+                    {% else %}
                         <h1 class="article-title">
                             {{ each_article.articleData.title }}
                         </h1>
-                        {% if each_article.articleData.subTitle and each_article.articleData.subTitle != "None" %}
-                            <h2 class="article-sub-title">
-                                {{ each_article.articleData.subTitle }}
-                            </h2>
+                    {% endif %}
+                        {% if each_article.articleData.subTitle %}
+                            {% if isSuperUser and each_article.isArticleRequested %}
+                                <input type="text" id="articleSubtitle" value="{{ each_article.articleData.subTitle }}">
+                            {% else %}
+                                <h2 class="article-sub-title">
+                                    {{ each_article.articleData.subTitle }}
+                                </h2>
+                            {% endif %}
                         {% endif %}
                         <hr>
                         {% if each_article.categories %}

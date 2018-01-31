@@ -104,3 +104,12 @@ class ArticleRequests(CustomModel):
     article = models.ForeignKey(Article, default=None)
     requestStatus = models.TextField(default='REQUESTED')
 
+    def get_status(self):
+        return self.requestStatus
+
+    def get_article_request(self, article_id):
+        try:
+            article_request_obejct = self.objects.get(article=Article.objects.get(id=article_id))
+            return article_request_obejct
+        except:
+            return "error"

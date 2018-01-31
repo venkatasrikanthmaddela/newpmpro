@@ -2,7 +2,7 @@
 # article data utils
 from articleManagement.constants import ARTICLE_RELATED_MODULES
 from articleManagement.models import Article, Categories, Tags, HyperLinks, ArticleFeedBack, PmUser, ArticleRelatedTags, \
-    ArticleRelatedCategories
+    ArticleRelatedCategories, ArticleRequests
 
 
 def get_article_data(article_id, request=None):
@@ -58,6 +58,23 @@ def get_article_data(article_id, request=None):
     articles_list.append(article_data)
 
     return articles_list
+
+
+def article_review_check(*kwargs):
+    for each_article in kwargs:
+        article_request_status = get_article_request_status(each_article.get("articleData").id)
+        if article_request_status == 'REQUESTED':
+            each_article["isArticleRequested"] = True
+    return kwargs
+
+
+def get_article_request_status(article_id):
+    try:
+        article_request = ArticleRequests.objects.get(article=Article.objects.get(id=article_id))
+        article_request_status = article_request.get_status()
+    except:
+        article_request_status = None
+    return article_request_status
 
 
 class ArticleManagement:

@@ -113,7 +113,7 @@ def create_user(name, email, phone, password, source, is_staff=False, is_subscri
     except IntegrityError as e:
         return False, {"message": 'user already exists'}
     except Exception as e:
-        logger.error(get_log_string('error: '+str(e)),exc_info=True)
+        logger.error(get_log_string('error: '+str(e)), exc_info=True)
         return False, {"message": str(e)}
 
 

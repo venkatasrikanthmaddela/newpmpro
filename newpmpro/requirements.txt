@@ -1,0 +1,6 @@
+## The following requirements were added by pip freeze:
+Django==1.10
+django-mysql==2.2.0
+djangorestframework==3.7.7
+logger==1.4
+mysql-python==1.2.3

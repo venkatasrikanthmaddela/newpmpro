@@ -1,7 +1,8 @@
 from django.conf.urls import url
-from adminStoreManagement.views import get_dashboard_page, login_as_admin, get_admin_login_page
+from adminStoreManagement.views import get_dashboard_page, login_as_admin, get_admin_login_page, get_requests
 
 urlpatterns = [
-    url('adminlogin', get_admin_login_page),
-    url('', get_dashboard_page, name='admin-login-page')
+    url(r'^$', get_dashboard_page, name='admin-login-page'),
+    url(r'see-project-requests/$', get_requests),
+    url(r'adminlogin/$', get_admin_login_page),
 ]

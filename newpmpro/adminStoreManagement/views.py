@@ -15,7 +15,7 @@ from newpmpro.exceptions import UnAuthorizedException
 
 
 @never_cache
-@user_passes_test(lambda u: u.is_superuser, login_url='/store/adminlogin')
+@user_passes_test(lambda u: u.is_superuser, login_url='/store/adminlogin/')
 def get_dashboard_page(request):
     context = {
         "statistics": get_defaults_for_dashboard()
@@ -26,6 +26,10 @@ def get_dashboard_page(request):
 @never_cache
 def get_admin_login_page(request):
     return render(request, 'adminStoreManagement/adminHome.html')
+
+@never_cache
+def get_requests(request):
+    return render(request, 'newProjectIdea.html')
 
 
 @never_cache
